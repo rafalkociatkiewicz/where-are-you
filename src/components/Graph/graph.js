@@ -6,14 +6,14 @@ const daysBetween = (startDate, endDate) => {
   return Math.floor((Date.parse(endDate) - Date.parse(startDate)) / msPerDay);
 };
 
-const Day = ({isToday, isGood}) => {
-  return (<div className={'day'+(isToday?' today':'')+(isGood?' good':'')}></div>);
+const Day = ({isToday, isGood, isInPast}) => {
+  return (<div className={'day'+(isToday?' today':'')+(isGood?' good':'')+(isInPast?' past':'')}></div>);
 }
 
 const getDays = (lifeSpanDays, daysTillToday, daysTillGoodTimes) => {
   const elements = [];
   for(let i = 0 ; i < lifeSpanDays ; i += 1){
-    elements.push(<Day key={`day-${i}`} isToday={daysTillToday === i} isGood={daysTillGoodTimes < i && i < daysTillToday} />)
+    elements.push(<Day key={`day-${i}`} isToday={daysTillToday === i} isGood={daysTillGoodTimes < i && i < daysTillToday} isInPast={i < daysTillToday}/>)
   }
   return elements;
 };

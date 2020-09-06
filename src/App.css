@@ -8,15 +8,19 @@
     flex-wrap: wrap;
 }
 .day {
-    width: 0.3%;
-    height: 0.3vw;
+    width: 0.2%;
+    height: 0.2vw;
     overflow: hidden;
     background-color: lightgray;
     margin: 1px;
+    border-radius: 50%;
 }
 .today {
     background-color: red;
 }
 .good {
     background-color: aquamarine;
+}
+.past {
+    background-color: lightslategray;
 }
